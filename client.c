@@ -26,7 +26,7 @@ void	ft_send_bits(int pid, char current_char)
 			kill_return = kill(pid, SIGUSR2);
 		if (kill_return == -1)
 		{
-			ft_putstr("wrong pid");
+			ft_putstr("WRONG PID");
 			exit(1);
 		}
 		usleep(350);
@@ -53,7 +53,6 @@ int	main(int ac, char **av)
 	int	i;
 
 	i = 0;
-	checker(av[1]);
 	if (ac == 3)
 	{
 		if (checker(av[1]) || ft_atoi(av[1]) <= 0 || ft_atoi(av[1]) > INT_MAX)
@@ -69,9 +68,6 @@ int	main(int ac, char **av)
 		ft_send_bits(ft_atoi(av[1]), '\n');
 	}
 	else
-	{
 		ft_putstr("Error: enter three arguments only");
-		return (1);
-	}
-	return (0);
+	return (1);
 }
